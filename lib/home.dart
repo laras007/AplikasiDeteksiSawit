@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'live_detection.dart';
 import 'pick_image.dart';
+import 'history_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,33 +17,34 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Positioned(
-                    child: Column(
+                  child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Image.asset(
-                      'assets/logo_agrinas.png',
-                      height: 120,
-                      ),
+                      Image.asset('assets/logo_agrinas.png', height: 120),
                       const SizedBox(height: 16),
                       Text(
-                      'Deteksi Kematangan Kelapa Sawit',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF2E7D32), // Colors.green[800] as a constant
-                      ),
+                        'Deteksi Kematangan Kelapa Sawit',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Color(
+                            0xFF2E7D32,
+                          ), // Colors.green[800] as a constant
+                        ),
                       ),
                     ],
-                    ),
                   ),
+                ),
                 const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => CameraDetectionScreen()),
+                      MaterialPageRoute(
+                        builder: (context) => CameraDetectionScreen(),
+                      ),
                     );
                     if (kDebugMode) {
                       print('Deteksi Langsung');
@@ -63,6 +65,17 @@ class HomePage extends StatelessWidget {
                   },
                   child: const Text('Pilih Gambar'),
                 ),
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HistoryPage()),
+                    );
+                  },
+                  child: const Text('History'),
+                ),
+                const SizedBox(height: 24),
               ],
             ),
           ),

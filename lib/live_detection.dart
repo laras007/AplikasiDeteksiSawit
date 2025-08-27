@@ -418,7 +418,9 @@ class _CameraDetectionScreenState extends State<CameraDetectionScreen> {
                         final channel = MethodChannel(
                           'com.agrinas.deteksi_sawit/media',
                         );
-                        final filename = 'capture_$ts.csv';
+                        final now = DateTime.now();
+                        final formattedDate = '${now.day.toString().padLeft(2, '0')}-${now.month.toString().padLeft(2, '0')}-${now.year.toString().substring(2)}_${now.hour.toString().padLeft(2, '0')}.${now.minute.toString().padLeft(2, '0')}';
+                        final filename = 'Palm_$formattedDate.csv';
                         final base64 = base64Encode(csvContent.codeUnits);
                         final res = await channel.invokeMethod(
                           'saveCsvToDownloads',
